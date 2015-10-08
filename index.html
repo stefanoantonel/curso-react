@@ -6,50 +6,8 @@
 <body>
 <div id="first"></div>
 
-<script src="react13.3.js"></script>
-<script src="jsxtransformer13.3.js"></script>
+<script src="build.js"></script>
 
-<!-- <script src="react-with-addons"></script>
-<script src="react-dom.js"></script>
-<script src="babel-browser.js"></script> -->
 
-<script type="text/jsx;harmony=true">
-	var pokemons = [
-		{number:1, name: "Bulbasor"},
-		{number:2, name: "Ivuasor"},
-		{number:3, name: "Venusoaur"}
-	];
-
-	class PokeAvatar extends React.Component {
-		render () {
-			var url = "http://veekun.com/dex/media/pokemon/main-sprites/x-y/" + this.props.number +".png";
-			return <img src = {url} />
-		}
-	}
-
-	class PokeRow extends React.Component {
-		render() {
-			return <li> 
-				<PokeAvatar number={this.props.number} />				
-				{this.props.name}
-			</li>
-		}
-	}
-
-	class PokeTable extends React.Component {
-		render() {
-			return <ul className="poketable"> 
-				{
-					this.props.pokemons.map((pokemon) => {
-						return <PokeRow key={pokemon.number} name={pokemon.name} number={pokemon.number}/>
-					})
-				}
-			</ul>
-		}
-	}
-
-	React.render( <PokeTable pokemons= {pokemons} />, document.getElementById("first") );
-	
-</script>
 </body>
 </html>
