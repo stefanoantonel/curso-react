@@ -14,8 +14,8 @@
 <script src="babel-browser.js"></script> -->
 
 <script type="text/jsx;harmony=true">
-
-	var HelloWorldComponent = React.createClass({
+	  //JSX
+	/*var HelloWorldComponent = React.createClass({
 		propTypes : {
 			name : React.PropTypes.string,
 			level : React.PropTypes.number
@@ -25,15 +25,20 @@
 			//Usamos las propiedades que usamos en el componente cuando lo llamamos	
 			return <h1>Hola {this.props.name} tu nivel es de {this.props.level}</h1>
 		}
-	});
+	});*/
 
 
-	/*// Si queremos usar ES6
+	// Si queremos usar ES6
 	class HelloWorldComponent extends React.Component {
 		render() {
-			return (<h1>Hola  {this.props.name} </h1>)
+			return (<h1>Hola  {this.props.name} tu nivel es de {this.props.level} </h1>)
 		}
-	}*/
+	}
+
+	HelloWorldComponent.propTypes = {
+		name : React.PropTypes.string,
+		level : React.PropTypes.number
+	};
 
 	React.render( <HelloWorldComponent name="pikachu" level={22}/>, document.getElementById("first") );
 	
