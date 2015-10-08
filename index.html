@@ -17,12 +17,13 @@
 
 	var HelloWorldComponent = React.createClass({
 		propTypes : {
-			name : React.PropTypes.string
+			name : React.PropTypes.string,
+			level : React.PropTypes.number
 		}, 
 		render : function() {
 			// return <h1>Hola Mundo</h1>
 			//Usamos las propiedades que usamos en el componente cuando lo llamamos	
-			return <h1>Hola {this.props.name}</h1>
+			return <h1>Hola {this.props.name} tu nivel es de {this.props.level}</h1>
 		}
 	});
 
@@ -34,7 +35,7 @@
 		}
 	}*/
 
-	React.render( <HelloWorldComponent name="pikachu"/>, document.getElementById("first") );
+	React.render( <HelloWorldComponent name="pikachu" level={22}/>, document.getElementById("first") );
 	
 </script>
 
