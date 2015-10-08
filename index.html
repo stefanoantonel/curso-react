@@ -14,33 +14,29 @@
 <script src="babel-browser.js"></script> -->
 
 <script type="text/jsx;harmony=true">
-	  //JSX
-	/*var HelloWorldComponent = React.createClass({
-		propTypes : {
-			name : React.PropTypes.string,
-			level : React.PropTypes.number
-		}, 
-		render : function() {
-			// return <h1>Hola Mundo</h1>
-			//Usamos las propiedades que usamos en el componente cuando lo llamamos	
-			return <h1>Hola {this.props.name} tu nivel es de {this.props.level}</h1>
-		}
-	});*/
+	var pokemons = [
+		{number:1, name: "Bulbasor"},
+		{number:2, name: "Ivuasor"},
+		{number:3, name: "Venusoaur"}
+	];
 
-
-	// Si queremos usar ES6
-	class HelloWorldComponent extends React.Component {
+	class Pokerow extends React.Component {
 		render() {
-			return (<h1>Hola  {this.props.name} tu nivel es de {this.props.level} </h1>)
+			// Gracias a ES6 puedo poner datos dentro de strings usando "${...}"
+			// Con commilas invertidas
+			// var url = `http://veekun.com/dex/media/pokemon/main-sprites/x-y/${this.props.number}.png`;
+			// Con concatenacion
+			var url = "http://veekun.com/dex/media/pokemon/main-sprites/x-y/" + this.props.number +".png";
+			return <div> 
+				<img src = {url} />
+				{this.props.name}
+			</div>
 		}
 	}
 
-	HelloWorldComponent.propTypes = {
-		name : React.PropTypes.string,
-		level : React.PropTypes.number
-	};
-
-	React.render( <HelloWorldComponent name="pikachu" level={22}/>, document.getElementById("first") );
+	
+	var pokemon = pokemons[0];
+	React.render( <Pokerow name={pokemon.name} number={pokemon.number}/>, document.getElementById("first") );
 	
 </script>
 
