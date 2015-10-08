@@ -29,19 +29,27 @@
 
 	class PokeRow extends React.Component {
 		render() {
-			return <div> 
+			return <li> 
 				<PokeAvatar number={this.props.number} />				
 				{this.props.name}
-			</div>
+			</li>
 		}
 	}
 
-	
-	var pokemon = pokemons[0];
-	React.render( <PokeRow name={pokemon.name} number={pokemon.number}/>, document.getElementById("first") );
+	class PokeTable extends React.Component {
+		render() {
+			return <ul className="poketable"> 
+				{
+					this.props.pokemons.map((pokemon) => {
+						return <PokeRow key={pokemon.number} name={pokemon.name} number={pokemon.number}/>
+					})
+				}
+			</ul>
+		}
+	}
+
+	React.render( <PokeTable pokemons= {pokemons} />, document.getElementById("first") );
 	
 </script>
-
-
 </body>
 </html>
