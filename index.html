@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso de ReactJS</title>
+</head>
+<body>
+<div id="first"></div>
+
+<script src="react13.3.js"></script>
+<script src="jsxtransformer13.3.js"></script>
+
+<!-- <script src="react-with-addons"></script>
+<script src="react-dom.js"></script>
+<script src="babel-browser.js"></script> -->
+
+<script type="text/jsx;harmony=true">
+
+	var HelloWorldComponent = React.createClass({
+		render : function() {
+			// return <h1>Hola Mundo</h1>
+			//Usamos las propiedades que usamos en el componente cuando lo llamamos	
+			return <h1>Hola {this.props.name}</h1>
+		}
+	});
+
+
+	
+
+	React.render( <HelloWorldComponent name="pikachu"/>, document.getElementById("first") );
+	
+</script>
+
+
+</body>
+</html>
