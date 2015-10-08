@@ -20,15 +20,17 @@
 		{number:3, name: "Venusoaur"}
 	];
 
-	class Pokerow extends React.Component {
-		render() {
-			// Gracias a ES6 puedo poner datos dentro de strings usando "${...}"
-			// Con commilas invertidas
-			// var url = `http://veekun.com/dex/media/pokemon/main-sprites/x-y/${this.props.number}.png`;
-			// Con concatenacion
+	class PokeAvatar extends React.Component {
+		render () {
 			var url = "http://veekun.com/dex/media/pokemon/main-sprites/x-y/" + this.props.number +".png";
+			return <img src = {url} />
+		}
+	}
+
+	class PokeRow extends React.Component {
+		render() {
 			return <div> 
-				<img src = {url} />
+				<PokeAvatar number={this.props.number} />				
 				{this.props.name}
 			</div>
 		}
@@ -36,7 +38,7 @@
 
 	
 	var pokemon = pokemons[0];
-	React.render( <Pokerow name={pokemon.name} number={pokemon.number}/>, document.getElementById("first") );
+	React.render( <PokeRow name={pokemon.name} number={pokemon.number}/>, document.getElementById("first") );
 	
 </script>
 
