@@ -3,9 +3,10 @@
   "dependencies": {
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
-    "react": "^0.14.0"
+    "react": "^0.14.0",
+    "uid": "0.0.2"
   },
   "scripts": {
-  	"build": "browserify app.js > build.js -t babelify"
+    "build": "browserify app.js > build.js -t babelify"
   }
 }

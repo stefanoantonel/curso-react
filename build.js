@@ -42,6 +42,10 @@ var _PokeTable = require("./PokeTable");
 
 var _PokeTable2 = _interopRequireDefault(_PokeTable);
 
+var _uid = require("uid");
+
+var _uid2 = _interopRequireDefault(_uid);
+
 var PokeApp = (function (_React$Component) {
 	_inherits(PokeApp, _React$Component);
 
@@ -61,8 +65,9 @@ var PokeApp = (function (_React$Component) {
 			//vamos a hacer que se acutalize el state de pokeapp
 			//uso let porque es menos gloabl que var
 			var growl = name + name + "!";
+			var newMessage = { text: growl, id: (0, _uid2["default"])() };
 			//ponemos los nuevos mensajes en una variable
-			this.state.messages.push({ text: growl });
+			this.state.messages.push(newMessage);
 			//asignamos la variable al estado y React llama solo al render()
 			this.setState({ messages: this.state.messages });
 		}
@@ -84,7 +89,7 @@ var PokeApp = (function (_React$Component) {
 exports["default"] = PokeApp;
 module.exports = exports["default"];
 
-},{"./PokeChat":4,"./PokeTable":7,"react":163}],3:[function(require,module,exports){
+},{"./PokeChat":4,"./PokeTable":7,"react":163,"uid":164}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -171,7 +176,8 @@ var PokeChat = (function (_React$Component) {
 				
 				//me saltaba un error de map is not a function.. por eso tengo que definir defaultProps
 				this.props.messages.map(function (message) {
-					return _react2['default'].createElement(_PokeMessage2['default'], { message: message });
+					console.log(message);
+					return _react2['default'].createElement(_PokeMessage2['default'], { key: message.id, message: message });
 				})
 			);
 		}
@@ -19329,4 +19335,23 @@ module.exports = warning;
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":32}]},{},[1]);
+},{"./lib/React":32}],164:[function(require,module,exports){
+/**
+ * Export `uid`
+ */
+
+module.exports = uid;
+
+/**
+ * Create a `uid`
+ *
+ * @param {String} len
+ * @return {String} uid
+ */
+
+function uid(len) {
+  len = len || 7;
+  return Math.random().toString(35).substr(2, len);
+}
+
+},{}]},{},[1]);

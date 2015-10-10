@@ -7,7 +7,8 @@ class PokeChat extends React.Component {
 			{
 				//me saltaba un error de map is not a function.. por eso tengo que definir defaultProps
 				this.props.messages.map((message) => {
-					return <PokeMessage message={message} />
+					console.log(message)
+					return <PokeMessage key={message.id} message={message} />
 				})
 			}
 		</ul>
