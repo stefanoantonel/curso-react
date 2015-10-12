@@ -1,0 +1,12 @@
+{
+  "name": "ejemplo-router",
+  "dependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
+    "react": "^0.13.0",
+    "react-router": "^0.13.4"
+  },
+  "scripts": {
+    "build": "browserify -t babelify app.js > build.js"
+  }
+}

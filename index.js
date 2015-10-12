@@ -29,7 +29,7 @@ let server = http.createServer(app).listen(port, () => {
 
 const io = engine.listen(server);
 
-//cando recibimos el mensaje del nuevo usuario lo transmitimos a todos 
+//cuando recibimos el mensaje del nuevo usuario lo transmitimos a todos 
 io.on("connection", (socket) => {
 	socket.on("message", (msg) => {
 		io.emit("message", msg);
