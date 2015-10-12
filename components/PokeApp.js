@@ -4,6 +4,7 @@ import PokeTable from "./PokeTable";
 import uid from "uid";
 import $ from "jquery";
 
+
 class PokeApp extends React.Component {
 	constructor(props) {
 		super(props)
@@ -17,6 +18,16 @@ class PokeApp extends React.Component {
 	haga el request para pedir los pokemons 
 	Setea lo que recibe con el estado para que se renderee*/
 	componentWillMount() {
+		/*request
+			.get("/pokemons")
+			.end((err, res) => {
+			    // Do something
+			    console.log(res);
+			    console.log(JSON.stringify(res.text));
+
+			    this.setState({pokemons: res.text});
+			});*/
+
 		$.get("/pokemons", (pokemons) => {
 			this.setState({pokemons: pokemons});
 		});
