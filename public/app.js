@@ -65,6 +65,7 @@ var PokeApp = (function (_React$Component) {
 			messages: [],
 			pokemons: []
 		};
+		this.user = (0, _uid2["default"])(10);
 	}
 
 	/*Vamos a decir que antes de que se monte 
@@ -88,6 +89,15 @@ var PokeApp = (function (_React$Component) {
 			_jquery2["default"].get("/pokemons", function (pokemons) {
 				_this.setState({ pokemons: pokemons });
 			});
+
+			//Establecemos la conexion con el server
+			this.socket = (0, _socketIoClient2["default"])("http://localhost:3000");
+			//Nos suscribimos al evento message que me llega un mensaje
+			this.socket.on("message", function (message) {
+				if (message.user !== _this.user) {
+					_this.newMessage(message);
+				}
+			});
 		}
 	}, {
 		key: "onGrowl",
@@ -95,9 +105,15 @@ var PokeApp = (function (_React$Component) {
 			//vamos a hacer que se acutalize el state de pokeapp
 			//uso let porque es menos gloabl que var
 			var growl = name + name + "!";
-			var newMessage = { text: growl, id: (0, _uid2["default"])() };
+			var newMessage = { text: growl, id: (0, _uid2["default"])(), user: this.user };
+			this.newMessage(newMessage);
+			this.socket.emit("message", newMessage);
+		}
+	}, {
+		key: "newMessage",
+		value: function newMessage(message) {
 			//ponemos los nuevos mensajes en una variable
-			this.state.messages.push(newMessage);
+			this.state.messages.push(message);
 			//asignamos la variable al estado y React llama solo al render()
 			this.setState({ messages: this.state.messages });
 		}
