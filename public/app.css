@@ -1,0 +1,18 @@
+.pokeapp {
+	overflow: hidden;
+	width: 100%;
+}
+
+.poketable {
+	width: 30%;
+	height: 100%;
+	float: left;
+	overflow: scroll;
+}
+
+.pokechat {
+	width: 50%;
+	height: 100%;
+	float: right;
+	overflow: scroll;
+}
