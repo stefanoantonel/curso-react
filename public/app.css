@@ -16,3 +16,35 @@
 	float: right;
 	overflow: scroll;
 }
+
+/* Tenemos que poner -enter para decirle 
+el estado inicial y esto es por reactjs*/
+.message-animation-enter {
+	opacity: 0;
+	transition: opacity .5s ease-in;
+}
+.message-animation-enter.message-animation-enter-active {
+	opacity: 1;
+}
+.message-animation-leave {
+
+}
+
+
+/*newly added items start faded out and translated 400px upwards on the y-axis*/
+.new-item {
+    opacity: 0;
+    animation: new-item-animation .3s linear forwards;
+}
+ 
+@keyframes new-item-animation {
+    from {
+        opacity: 0;
+        transform: translateY(-400px);
+}
+ 
+    to {
+        opacity: 1;
+        transform : translateY(0);
+    }
+}
