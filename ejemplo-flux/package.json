@@ -1,0 +1,14 @@
+{
+  "name": "ejemplo-flux",
+  "dependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
+    "jquery": "^2.1.4",
+    "react": "^0.14.0",
+    "reflux": "^0.3.0",
+    "uid": "0.0.2"
+  },
+  "scripts": {
+    "build": "browserify -t babelify app.js > build.js"
+  }
+}
